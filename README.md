@@ -20,13 +20,15 @@ mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 
 echo 'export PATH=$HOME/bin:$PATH'>> ~/.bashrc
 
-aws configure set region us-east-2 --profile default
+aws configure set region us-east-1 --profile default
 
 sudo apt install python3-pip
 
 pip3 install --upgrade --user awscli
 
-aws eks --region us-east-2 update-kubeconfig --name revpro-preview-cluster --profile default
+aws eks --region us-east-1 update-kubeconfig --name revpro-preview-cluster --profile default
+
+curl -o aws-auth-cm.yaml https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/aws-auth-cm.yaml
 
 -- don't forget to update the worker-node role arn in the yaml file
 sudo vi aws-auth-cm.yaml
