@@ -8,13 +8,13 @@ items:
     creationTimestamp: "2019-11-20T22:48:51Z"
     generation: 11
     name: revaturepro-app
-    namespace: haproxy-controller
+    namespace: qa
     resourceVersion: "978377"
     selfLink: /apis/extensions/v1beta1/namespaces/haproxy-controller/ingresses/revaturepro-app
     uid: ebed1596-0be7-11ea-a234-02b784e7b564
   spec:
     rules:
-    - host: preview-kube-ms.revature.com
+    - host: qa-ms.revature.com
       http:
         paths:
         - backend:
