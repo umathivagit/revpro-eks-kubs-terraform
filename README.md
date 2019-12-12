@@ -30,7 +30,7 @@ aws eks --region us-east-1 update-kubeconfig --name revpro-preview-cluster --pro
 
 curl -o aws-auth-cm.yaml https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/aws-auth-cm.yaml
 
--- don't forget to update the worker-node role arn in the yaml file
+#-- don't forget to update the worker-node role arn in the yaml file
 sudo vi aws-auth-cm.yaml
 
 kubectl apply -f aws-auth-cm.yaml
@@ -39,5 +39,5 @@ kubectl get nodes --watch
 
 kubectl get pods --all-namespaces
 
---HAProxy Controller
+#HAProxy Controller
 kubectl apply -f https://cdn.haproxy.com/kubernetes/haproxy-ingress.hapee.yaml
