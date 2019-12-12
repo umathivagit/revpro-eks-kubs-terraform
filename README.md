@@ -20,9 +20,6 @@ mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator
 
 echo 'export PATH=$HOME/bin:$PATH'>> ~/.bashrc
 
-Key: AKIAV57JWR6CHNGKVBMC
-Pass: fZC+TmcNv2Qw2Wd5hNb8q8tHoF1mThtIzy6wQrmQ
-
 aws configure set region us-east-2 --profile default
 
 sudo apt install python3-pip
