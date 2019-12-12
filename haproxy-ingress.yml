@@ -1,0 +1,65 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      INGRESS.kubernetes.io/rewrite-target: /
+    creationTimestamp: "2019-11-20T22:48:51Z"
+    generation: 11
+    name: revaturepro-app
+    namespace: haproxy-controller
+    resourceVersion: "978377"
+    selfLink: /apis/extensions/v1beta1/namespaces/haproxy-controller/ingresses/revaturepro-app
+    uid: ebed1596-0be7-11ea-a234-02b784e7b564
+  spec:
+    rules:
+    - host: preview-kube-ms.revature.com
+      http:
+        paths:
+        - backend:
+            serviceName: apigateway-deployment
+            servicePort: 8001
+          path: /apigateway
+        - backend:
+            serviceName: coredata-deployment
+            servicePort: 8099
+          path: /coredata
+        - backend:
+            serviceName: batch-deployment
+            servicePort: 8092
+          path: /batch
+        - backend:
+            serviceName: bootcamp-deployment
+            servicePort: 8091
+          path: /bootcamp
+        - backend:
+            serviceName: curriculum-deployment
+            servicePort: 8095
+          path: /curriculum
+        - backend:
+            serviceName: project-deployment
+            servicePort: 8098
+          path: /project
+        - backend:
+            serviceName: quiz-deployment
+            servicePort: 8097
+          path: /quiz
+        - backend:
+            serviceName: revpro-metadata-deployment
+            servicePort: 8096
+          path: /revpro-metadata
+        - backend:
+            serviceName: salesforce-deployment
+            servicePort: 8093
+          path: /salesforce
+        - backend:
+            serviceName: security-deployment
+            servicePort: 8090
+          path: /security
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
