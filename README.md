@@ -38,3 +38,6 @@ kubectl apply -f aws-auth-cm.yaml
 kubectl get nodes --watch
 
 kubectl get pods --all-namespaces
+
+--HAProxy Controller
+kubectl apply -f https://cdn.haproxy.com/kubernetes/haproxy-ingress.hapee.yaml
