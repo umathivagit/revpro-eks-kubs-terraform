@@ -39,5 +39,5 @@ kubectl get nodes --watch
 
 kubectl get pods --all-namespaces
 
-#HAProxy Controller
-kubectl apply -f https://cdn.haproxy.com/kubernetes/haproxy-ingress.hapee.yaml
+#HAProxy Controller#
+kubectl apply -f https://raw.githubusercontent.com/haproxytech/kubernetes-ingress/master/deploy/haproxy-ingress.yaml
