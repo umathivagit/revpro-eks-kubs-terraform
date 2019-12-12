@@ -28,8 +28,6 @@ pip3 install --upgrade --user awscli
 
 aws eks --region us-east-2 update-kubeconfig --name revpro-preview-cluster --profile default
 
-aws eks --region us-east-1 update-kubeconfig --name revpro-production-cluster --profile default
-
 -- don't forget to update the worker-node role arn in the yaml file
 sudo vi aws-auth-cm.yaml
 
