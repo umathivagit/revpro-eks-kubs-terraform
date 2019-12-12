@@ -25,8 +25,6 @@ Pass: fZC+TmcNv2Qw2Wd5hNb8q8tHoF1mThtIzy6wQrmQ
 
 aws configure set region us-east-2 --profile default
 
-aws configure set region us-east-1 --profile default
-
 sudo apt install python3-pip
 
 pip3 install --upgrade --user awscli
