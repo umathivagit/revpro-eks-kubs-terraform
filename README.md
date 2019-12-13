@@ -44,3 +44,7 @@ kubectl apply -f https://raw.githubusercontent.com/haproxytech/kubernetes-ingres
 
 #execute haproxy ingress
 kubectl apply -f haproxy-ingress.yml
+
+#modify the haproxy service type to LoadBalancer from NodePort , Now check for the kubectl get svc (svc of haproxy) should display the classic load balancer url
+
+#Edit the Listener of LoadBalancer created in AWS from  TCP to Http/80 to HaProxy Service Port No same for HTTPS also
