@@ -48,3 +48,16 @@ kubectl apply -f haproxy-ingress.yml
 # modify the haproxy service type to LoadBalancer from NodePort , Now check for the kubectl get svc (svc of haproxy) should display the classic load balancer url
 
 # Edit the Listener of LoadBalancer created in AWS from  TCP to Http/80 to HaProxy Service Port No same for HTTPS also
+
+
+#ELK Installation and Configuration (From the ElasticSearch EC2)
+sudo apt-get update
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get install default-jdk
+sudo update-rc.d elasticsearch defaults 95 10
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable elasticsearch.service
+sudo systemctl start elasticsearch.service
+sudo journalctl --unit elasticsearch
+sudo nano /etc/elasticsearch/elasticsearch.yml
