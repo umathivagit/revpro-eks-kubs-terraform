@@ -61,3 +61,54 @@ sudo /bin/systemctl enable elasticsearch.service
 sudo systemctl start elasticsearch.service
 sudo journalctl --unit elasticsearch
 sudo nano /etc/elasticsearch/elasticsearch.yml
+sudo nano etc/elasticsearch/jvm.options
+sudo nano /etc/default/elasticsearch
+
+--uninstall
+sudo apt-get --purge autoremove elasticsearch
+sudo rm -rf /var/lib/elasticsearch/
+sudo rm -rf /etc/elasticsearch
+sudo journalctl -u elasticsearch
+--uninstall
+
+ curl -X PUT "localhost:9200/_cluster/_settings?pretty" -H 'Content-Type: application/json' -d'
+{
+    "index" : {
+        "refresh_interval" : "-1"
+    }
+}
+'
+
+curl -XPUT "localhost:9200/filebeat-*/_settings?pretty" -H 'Content-Type: application/json' -d'
+{
+    "index" : {
+        "number_of_replicas" : 0
+    }
+}
+'
+
+#uncomment the below lines in the file
+	bootstrap.memory_lock: true
+	network.host: localhost
+	http.port: 9200
+	xpack.security.enabled: true
+	xpack.security.audit.enabled: true
+	node.name: rev-es-node-1
+  
+sudo nano /usr/lib/systemd/system/elasticsearch.service or sudo /bin/systemctl enable elasticsearch.service
+sudo systemctl edit elasticsearch
+
+#Kibana Installation
+sudo apt-get update && sudo apt-get install kibana
+
+sudo update-rc.d kibana defaults 95 10
+
+sudo /bin/systemctl daemon-reload
+
+sudo /bin/systemctl enable kibana.service
+
+sudo nano /etc/kibana/kibana.yml
+
+
+  
+
